@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -27,29 +28,56 @@ namespace AdressBok
                 else
                 {
 
-                    List<Contact> contactsList = JsonSerializer.Deserialize<List<Contact>>(viewContacts);
+                    Contact[] contactsList = JsonSerializer.Deserialize<Contact[]>(viewContacts);
+                    int counter = 1;
 
                     foreach (Contact contact in contactsList)
                     {
-                        Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName} {contact.EmailAdress}");
+                        Console.WriteLine($"{counter} Contact: \r\nFirstname: {contact.FirstName} Lastname: {contact.LastName} Email: {contact.EmailAdress}");
+                        counter = counter + 1;
                     }
 
 
                 }
-                Console.WriteLine("Click any button to go back to menu");
-                Console.ReadKey();
+               
             }
         }
 
 
-        public static Array ViewSpecificContact()
+
+        public static void ViewSpecificContact()
         {
             Console.Clear();
 
-            Console.WriteLine("FirstName:Hans\r\nLastname:Mattin-Lassei\r\nAddress:Nordkapsvägen 1, 123 45 Stockholm\r\nEmailadress:hans@domain.com\r\nPhonenumber:073-123 45 67\r\n ");
-            Console.ReadLine();
-            return null;
+            string urlJson = @".\JsonSaveFile.Json";
 
+
+            if (File.Exists(urlJson))
+            {
+                string viewFirstContacts = File.ReadAllText(urlJson);
+                if (string.IsNullOrEmpty(viewFirstContacts))
+                {
+                    Console.WriteLine("There are no contacts in your contactlist.(Lonly much?)");
+
+                }
+                else
+                {
+
+                    List<Contact> allContact = JsonSerializer.Deserialize<List<Contact>>(viewFirstContacts);
+
+
+
+                    Contact contact = allContact.First();
+
+
+                    Console.WriteLine($"Contact \r\nFirstname: {contact.FirstName} \r\nLastName: {contact.LastName} \r\nEmail: {contact.EmailAdress} \r\nPhonenumber: {contact.PhoneNumber} \r\nAddress: {contact.Address} \r\nClick any button to go back to menu");
+
+                    Console.ReadKey();
+
+
+                }
+            }
+            
         }
     }
 }

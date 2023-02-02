@@ -34,25 +34,6 @@ namespace AdressBok
 
 
             }
-
-            //static void ConvertJsonToContact()
-            //{
-            //    var cus = CreateContact();
-
-            //    var jsonFormattedContent = Newtonsoft.Json.JsonConvert.SerializeObject(cus);
-
-            //    string contact =
-
-            //        if (File.Exists(contact) == )
-            //    {
-            //        File.WriteAllText(contact, jsonFormattedContent);
-            //    }
-            //    else
-            //    {
-            //        File.Delete(contact);
-            //        File.WriteAllText(contact, jsonFormattedContent);
-            //    }
-            //}
         }
     }
 }

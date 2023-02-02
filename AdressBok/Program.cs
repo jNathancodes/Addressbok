@@ -38,13 +38,15 @@ namespace AdressBok
                             ContactService.CreateContact();
                             break;
                         case 2:
-                            ContactService.RemoveContact(svar);
+                            ContactService.RemoveContact();
                             break;
                         case 3:
                             ViewContactService.ViewSpecificContact();
                             break;
                         case 4:
                             ViewContactService.ViewAllContacts();
+                            Console.WriteLine("\r\nClick any button to go back to menu");
+                            Console.ReadKey();
                             break;
                         default:
                             break;
