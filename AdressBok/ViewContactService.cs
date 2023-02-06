@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AdressBok
 {
-    internal class ViewContactService
+    public class ViewContactService
     {
         public static void ViewAllContacts()
         {

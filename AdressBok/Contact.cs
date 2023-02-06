@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdressBok
 {
-    internal class Contact
+    public class Contact
     {
 
         public string FirstName { get; set; }

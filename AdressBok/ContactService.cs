@@ -12,8 +12,12 @@ using System.Data;
 
 namespace AdressBok
 {
-    internal class ContactService
+    public class ContactService
     {
+        
+
+        public static List<Contact> ContactList { get; set; } = new List<Contact>();
+
         static public Contact CreateContact()
         {
             Console.Clear();
